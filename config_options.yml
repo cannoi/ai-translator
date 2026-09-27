@@ -1,0 +1,13 @@
+options:
+  APP_IMAGE:
+    type: string
+    label: "Docker Image"
+    description: "Đường dẫn Docker image trên GHCR hoặc Docker Hub"
+    default: "ghcr.io/placeholder/ai-translator:latest"
+    required: true
+  APP_PORT:
+    type: integer
+    label: "App Port"
+    description: "Cổng chạy ứng dụng trên máy host (SoloHost)"
+    default: 18080
+    required: true

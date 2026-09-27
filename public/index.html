@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Translator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>.paf-made-by{position:fixed;right:8px;bottom:8px;width:min(72px,12vw);max-width:12vw;height:auto;object-fit:contain;opacity:.5;background:transparent;padding:0;border:0;box-shadow:none;filter:none;pointer-events:none;z-index:30}</style></head>
+<body>
+  <div class="app-container">
+    <header>
+      <div class="logo">
+        <i class="fa-solid fa-language"></i>
+        <h1>AI Translator</h1>
+      </div>
+      <div class="api-config">
+        <button id="config-btn" title="Configure API Key"><i class="fa-solid fa-gear"></i> Settings</button>
+      </div>
+    </header>
+
+    <div id="settings-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2><i class="fa-solid fa-key"></i> API Configuration</h2>
+        <p>Enter your custom OpenAI or DeepL API key to enable premium translation models (optional).</p>
+        <div class="input-group">
+          <label for="api-key-input">API Key:</label>
+          <input type="password" id="api-key-input" placeholder="sk-...">
+        </div>
+        <button id="save-settings-btn" class="btn-primary">Save Settings</button>
+      </div>
+    </div>
+
+    <main class="translator-grid">
+      <div class="panel input-panel">
+        <div class="panel-header">
+          <select id="source-lang">
+            <option value="auto">Detect Language</option>
+            <option value="en" selected>English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
+            <option value="it">Italian</option>
+            <option value="zh">Chinese</option>
+            <option value="ja">Japanese</option>
+          </select>
+          <div class="panel-actions">
+            <button id="clear-btn" title="Clear text"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+        </div>
+        <textarea id="source-text" placeholder="Type or paste text to translate..."></textarea>
+        <div class="panel-footer">
+          <span id="char-count">0 / 5000</span>
+          <button id="speech-btn" title="Voice Input"><i class="fa-solid fa-microphone"></i></button>
+        </div>
+      </div>
+
+      <div class="swap-container">
+        <button id="swap-langs-btn" title="Swap Languages"><i class="fa-solid fa-arrows-rotate"></i></button>
+      </div>
+
+      <div class="panel output-panel">
+        <div class="panel-header">
+          <select id="target-lang">
+            <option value="es" selected>Spanish</option>
+            <option value="en">English</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
+            <option value="it">Italian</option>
+            <option value="zh">Chinese</option>
+            <option value="ja">Japanese</option>
+          </select>
+          <div class="panel-actions">
+            <span id="engine-badge" class="badge">Local AI</span>
+          </div>
+        </div>
+        <div id="output-text" class="output-placeholder">Translation will appear here...</div>
+        <div class="panel-footer">
+          <button id="tts-btn" title="Listen to translation" disabled><i class="fa-solid fa-volume-high"></i></button>
+          <button id="copy-btn" title="Copy translation" disabled><i class="fa-solid fa-copy"></i></button>
+        </div>
+      </div>
+    </main>
+
+    <section class="history-section">
+      <h2><i class="fa-solid fa-history"></i> Recent Translations</h2>
+      <div id="history-list" class="history-list">
+        <p class="no-history">No recent translations yet.</p>
+      </div>
+    </section>
+
+    
+  </div>
+
+  <script src="app.js"></script>
+<img class="paf-made-by" src="/made-by.png" alt="Made with App Builder — Pi SoloHost"></body>
+</html>

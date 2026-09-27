@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  ai-translator:
+    image: ${APP_IMAGE:-ghcr.io/placeholder/ai-translator:latest}
+    container_name: ai-translator
+    restart: always
+    ports:
+      - "127.0.0.1:${APP_PORT:-18080}:8080"
+    environment:
+      - PORT=8080
+    labels:
+      pi.ui.primary: "true"
